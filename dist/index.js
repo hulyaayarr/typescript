@@ -94,5 +94,41 @@ const getProfit = (movie) => {
 };
 getProfit(dune);
 getProfit(cats);
+console.log("*****************ARRAYLER*****************");
+// **********************************************
+// ******************* BÖLÜM 1 ******************
+// **********************************************
+// Yaşları tutmak üzere "ages" isminde boş bir array oluşturalım.
+// Tür girmeyi unutmayalım.
+const ages = [];
+// **********************************************
+// ******************* BÖLÜM 2 ******************
+// **********************************************
+// "gameBoard" isminde boş bir array oluşturalım. Bu array, stringlerden oluşan
+// iki boyutlu bir array olmalı. Yani array'in içinde array'ler olacak ve bu
+// array'lerin içinde string'ler olacak.
+const gameBoard = [[]];
+const product1 = {
+    name: "coffe mug",
+    price: 11.5,
+};
+const product2 = {
+    name: "laptop",
+    price: 11.5,
+};
+// **********************************************
+// ******************* BÖLÜM 4 ******************
+// **********************************************
+// "getTotal" isminde bir fonksiyon oluşturalım. Bu fonksiyon, bir önceki adımda
+// yazdığımız "Product" türünden oluşan bir array alsın ve bu array'in içindeki
+// ürünlerin fiyatlarının toplamını dönsün.
+const getTotal = (products) => {
+    let total = 0;
+    for (const product of products) {
+        total += product.price;
+    }
+    console.log(total);
+};
+getTotal([product1, product2]);
 export {};
 //# sourceMappingURL=index.js.map
