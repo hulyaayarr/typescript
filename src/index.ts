@@ -183,3 +183,109 @@ const getTotal = (products: Product[]) => {
   console.log(total);
 };
 getTotal([product1, product2]);
+
+console.log("*****************UNIONS*****************");
+
+// **********************************************
+// ******************* BÖLÜM 1 ******************
+// **********************************************
+// "highScore" isminde bir değişken oluşturalım. Bu değişken, bir sayı veya
+// boolean değer alabilsin.
+
+let highScore: number | boolean;
+
+// **********************************************
+// ******************* BÖLÜM 2 ******************
+// **********************************************
+// "stuff" isminde boş bir array oluşturalım. Bu array, sayılardan veya stringlerden
+// oluşabilsin. Ancak sayılar ve string'ler bu array'in içinde bir arada olamasın.
+// Yani ya sayı array'i olabilsin, ya da string array'i olabilsin.
+
+let stuff: (string | number)[] = [];
+
+stuff.push(8);
+stuff.push("deneme");
+console.log(stuff);
+
+// **********************************************
+// ******************* BÖLÜM 3 ******************
+// **********************************************
+// "SkillLevel" isminde bir literal türü oluşturalım (enum değil, literal tür).
+// Bu tür, "Beginner", "Intermediate", "Advanced", ve "Expert" değerlerini alabilsin.
+
+type SkillLevel = "Beginner" | "Intermediate" | "Advanced" | "Expert";
+
+// **********************************************
+// ******************* BÖLÜM 4 ******************
+// **********************************************
+// "SkiSchoolStudent" isminde bir tür oluşturalım. Bu tür, aşağıdaki özelliklere sahip
+// olsun:
+// - name bir string olsun
+// - age bir numara olsun
+// - sport değeri "ski" veya "snowboard" olsun
+// - level ise yukarıda oluşturduğumuz SkillLevel türünden bir değer olsun
+
+type SkiSchoolStudent = {
+  name: string;
+  age: number;
+  sport: "ski" | "snowboard";
+  level: SkillLevel;
+};
+
+// **********************************************
+// ******************* BÖLÜM 5 ******************
+// **********************************************
+// RGB renklerini temsil eden bir tür oluşturalım. Bu tür, aşağıdaki özelliklere sahip
+// olsun:
+// - r bir numara olsun
+// - g bir numara olsun
+// - b bir numara olsun
+
+type RGB = {
+  r: number;
+  g: number;
+  b: number;
+};
+
+// HSL renklerini temsil eden bir tür oluşturalım. Bu tür, aşağıdaki özelliklere sahip
+// olsun:
+// - h bir numara olsun
+// - s bir numara olsun
+// - l bir numara olsun
+
+type HSL = {
+  h: number;
+  s: number;
+  l: number;
+};
+
+// "colors" isminde boş bir array oluşturalım. Bu array, yukarıda oluşturduğumuz iki
+// türden oluşabilsin. Yani bu array'in içinde hem RGB renkler, hem de HSL renkler
+// bulunabilsin.
+
+const colors: (RGB | HSL)[] = [];
+
+// **********************************************
+// ******************* BÖLÜM 6 ******************
+// **********************************************
+// "greet" isminde bir fonksiyon oluşturalım. Bu fonksiyon, parametre olarak:
+// - string
+// veya
+// - string'lerden oluşan array
+// alabilsin. Eğer fonksiyona bir string girilirse (isim string'i), fonksiyon bu
+// string için "Merhaba, İSİM" şeklinde bir string yazdırsın. Eğer fonksiyona bir
+// array girilirse, fonksiyon bu array'in her bir string elemanı için ayrı ayrı
+// "Merhaba, İSİM" şeklinde bir string yazdırsın.
+
+function greet(name: string | string[]) {
+  if (typeof name === "string") {
+    console.log(`Merhaba ${name}`);
+  } else if (Array.isArray(name)) {
+    for (const names of name) {
+      console.log(`Merhaba ${names}`);
+    }
+  }
+}
+
+greet("ayşe");
+greet(["kamil", "esmeralda", "ramiz"]);

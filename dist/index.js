@@ -130,5 +130,49 @@ const getTotal = (products) => {
     console.log(total);
 };
 getTotal([product1, product2]);
+console.log("*****************UNIONS*****************");
+// **********************************************
+// ******************* BÖLÜM 1 ******************
+// **********************************************
+// "highScore" isminde bir değişken oluşturalım. Bu değişken, bir sayı veya
+// boolean değer alabilsin.
+let highScore;
+// **********************************************
+// ******************* BÖLÜM 2 ******************
+// **********************************************
+// "stuff" isminde boş bir array oluşturalım. Bu array, sayılardan veya stringlerden
+// oluşabilsin. Ancak sayılar ve string'ler bu array'in içinde bir arada olamasın.
+// Yani ya sayı array'i olabilsin, ya da string array'i olabilsin.
+let stuff = [];
+stuff.push(8);
+stuff.push("deneme");
+console.log(stuff);
+// "colors" isminde boş bir array oluşturalım. Bu array, yukarıda oluşturduğumuz iki
+// türden oluşabilsin. Yani bu array'in içinde hem RGB renkler, hem de HSL renkler
+// bulunabilsin.
+const colors = [];
+// **********************************************
+// ******************* BÖLÜM 6 ******************
+// **********************************************
+// "greet" isminde bir fonksiyon oluşturalım. Bu fonksiyon, parametre olarak:
+// - string
+// veya
+// - string'lerden oluşan array
+// alabilsin. Eğer fonksiyona bir string girilirse (isim string'i), fonksiyon bu
+// string için "Merhaba, İSİM" şeklinde bir string yazdırsın. Eğer fonksiyona bir
+// array girilirse, fonksiyon bu array'in her bir string elemanı için ayrı ayrı
+// "Merhaba, İSİM" şeklinde bir string yazdırsın.
+function greet(name) {
+    if (typeof name === "string") {
+        console.log(`Merhaba ${name}`);
+    }
+    else if (Array.isArray(name)) {
+        for (const names of name) {
+            console.log(`Merhaba ${names}`);
+        }
+    }
+}
+greet("ayşe");
+greet(["kamil", "esmeralda", "ramiz"]);
 export {};
 //# sourceMappingURL=index.js.map
